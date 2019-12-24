@@ -13,7 +13,7 @@
       </xpath>
       <xpath expr="//table[hasclass('table-condensed')]" position="before">
         <p t-if="o.note1">
-          <span t-field="o.note1"/>
+          <span t-raw="o.render_html(o.note1)"/>
         </p>
       </xpath>
       <xpath expr="//tr[@t-as='line']" position="replace">
@@ -55,7 +55,7 @@
       </xpath>
       <xpath expr="//p[@t-field='o.notes']" position="after">
         <p t-if="o.note2">
-          <span t-field="o.note2"/>
+          <span t-raw="o.render_html(o.note1)"/>
         </p>
       </xpath>
     </template>
