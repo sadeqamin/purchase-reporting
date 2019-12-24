@@ -29,6 +29,12 @@ class PurchaseOrder(models.Model):
         if comment:
             self.note2 = comment.get_value(self.partner_id.id)
 
+    @api.multi
+    def render_html(self, template):
+        if template:
+            rendered_note = self.env['mail.template'].render_template(template, 'sale.order', [self.id])
+            for key, value in rendered_note.items():
+                return(str(value))            
 
 class PurchaseOrderLine(models.Model):
     """Add text comment"""
