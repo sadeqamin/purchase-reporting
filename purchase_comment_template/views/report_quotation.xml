@@ -13,7 +13,7 @@
       </xpath>
       <xpath expr="//table[hasclass('table-condensed')]" position="before">
         <p t-if="o.note1">
-          <span t-field="o.note1"/>
+          <span t-raw="o.render_html(o.note1)"/>
         </p>
       </xpath>
       <xpath expr="//tr[@t-as='order_line']" position="replace">
@@ -35,7 +35,7 @@
                     <td colspan="3" style="padding:0;">
                         <table style="width:100%;border:0;padding:0;">
                             <caption class="formatted_note">
-                                <span t-field="order_line.formatted_note"/>
+                                <span t-field="order_line.render_html(order_line.formatted_note)"/>
                             </caption>
                         </table>
                     </td>
@@ -45,7 +45,7 @@
       </xpath>
       <xpath expr="//p[@t-field='o.notes']" position="after">
         <p t-if="o.note2">
-          <span t-field="o.note2"/>
+          <span t-raw="o.render_html(o.note2)"/>
         </p>
       </xpath>
     </template>
