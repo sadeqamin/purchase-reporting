@@ -46,7 +46,7 @@ class PurchaseOrderLine(models.Model):
     @api.multi
     def render_html(self, template):
         if template:
-            rendered_note = self.env['mail.template'].render_template(template, 'sale.order', [self.id])
+            rendered_note = self.env['mail.template'].render_template(template, 'purchase.order.line', [self.id])
             for key, value in rendered_note.items():
                 return(str(value))            
 
